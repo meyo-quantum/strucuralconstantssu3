@@ -30,15 +30,31 @@ for i in range(8):
                         break
                     else:
                         continue
+            
+for i in range(8):
+    for j in range(8):
+        for k in range(8):
+            if i==j or i==k or k==j:
+                f[i,j,k]=0
+            elif np.abs(f[i,j,k])>1:
+                f[i,j,k]=0
+            elif f[i,j,k].imag!=0:
+                f[i,j,k]=0
+            else:
+                continue
+            
 
 for i in range(8):
     for j in range(8):
         for k in range(8):
             if f[i,j,k]!=0:
-                print('Strukturna konstanta f{',i+1,j+1,k+1,'}: ',f[i,j,k])
+                print('Strukturna konstanta f{',i+1,j+1,k+1,'}: ',f[i,j,k].real)
 
 #da bi uštedili prostora, napisat ćemo samo one koje nisu nule :) 
 print('Ostale strukurne konstante su jednake nuli!')
+
+
+
 
                         
                         
